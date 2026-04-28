@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinel IP | Sports Media Protection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i data-lucide="shield-check" class="logo-icon"></i>
+                <span class="logo-text">Sentinel<span>IP</span></span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-page="dashboard">
+                    <i data-lucide="layout-dashboard"></i> <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-page="assets">
+                    <i data-lucide="video"></i> <span>Media Assets</span>
+                </a>
+                <a href="#" class="nav-item" data-page="monitoring">
+                    <i data-lucide="activity"></i> <span>Live Monitor</span>
+                </a>
+                <a href="#" class="nav-item" data-page="reports">
+                    <i data-lucide="file-text"></i> <span>Takedown Logs</span>
+                </a>
+                <a href="#" class="nav-item" data-page="settings">
+                    <i data-lucide="settings"></i> <span>Configuration</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Premier+League&background=00f2ff&color=0a0f1e" alt="User">
+                    <div class="user-info">
+                        <p class="user-name">Premier League</p>
+                        <p class="user-role">Organization Admin</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-box">
+                    <i data-lucide="search"></i>
+                    <input type="text" placeholder="Search assets or URLs...">
+                </div>
+                <div class="top-actions">
+                    <button id="register-asset-btn" class="btn btn-secondary">
+                        <i data-lucide="plus"></i> Register Asset
+                    </button>
+                    <div class="notification-bell">
+                        <i data-lucide="bell"></i>
+                        <span class="badge">12</span>
+                    </div>
+                </div>
+            </header>
+
+            <div id="page-content" class="page-content">
+                <!-- Dashboard Content (Default) -->
+                <div class="dashboard-grid">
+                    <!-- Stats Overview -->
+                    <div class="stats-row">
+                        <div class="stat-card glass">
+                            <div class="stat-header">
+                                <span class="stat-label">Total Assets</span>
+                                <i data-lucide="database" class="icon-cyan"></i>
+                            </div>
+                            <div class="stat-value">12,482</div>
+                            <div class="stat-change positive">+124 this week</div>
+                        </div>
+                        <div class="stat-card glass">
+                            <div class="stat-header">
+                                <span class="stat-label">Active Detections</span>
+                                <i data-lucide="alert-triangle" class="icon-warning"></i>
+                            </div>
+                            <div class="stat-value">342</div>
+                            <div class="stat-change negative">+45 since yesterday</div>
+                        </div>
+                        <div class="stat-card glass">
+                            <div class="stat-header">
+                                <span class="stat-label">Protection Score</span>
+                                <i data-lucide="shield" class="icon-green"></i>
+                            </div>
+                            <div class="stat-value">98.2%</div>
+                            <div class="stat-change positive">Optimal Performance</div>
+                        </div>
+                        <div class="stat-card glass">
+                            <div class="stat-header">
+                                <span class="stat-label">Takedown Rate</span>
+                                <i data-lucide="gavel" class="icon-purple"></i>
+                            </div>
+                            <div class="stat-value">92%</div>
+                            <div class="stat-change positive">+2% improvement</div>
+                        </div>
+                    </div>
+
+                    <!-- Propagation Map & Live Feed -->
+                    <div class="main-grid">
+                        <div class="card glass map-card">
+                            <div class="card-header">
+                                <h3>Global Content Propagation</h3>
+                                <div class="card-actions">
+                                    <span class="status-dot pulse"></span> Live Tracking
+                                </div>
+                            </div>
+                            <div class="map-container">
+                                <div id="propagation-map">
+                                    <!-- Map SVG will be injected here -->
+                                    <div class="map-placeholder">
+                                        <div class="scanning-effect"></div>
+                                        <p>Initializing Real-time Global Scan...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card glass feed-card">
+                            <div class="card-header">
+                                <h3>Real-time Detections</h3>
+                                <button id="view-all-detections" class="btn-text">View All</button>
+                            </div>
+                            <div class="feed-list" id="live-feed">
+                                <!-- Feed items will be injected by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Assets -->
+                    <div class="card glass assets-card">
+                        <div class="card-header">
+                            <h3>Recently Registered Assets</h3>
+                            <button id="manage-library-btn" class="btn btn-primary btn-sm">Manage Library</button>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Asset Name</th>
+                                    <th>Status</th>
+                                    <th>Fingerprint Hash</th>
+                                    <th>Detection Count</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="assets-table-body">
+                                <!-- Table rows will be injected by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="upload-modal" class="modal">
+        <div class="modal-content glass">
+            <h2>Register New Asset</h2>
+            <p>Upload your media file to generate a unique digital fingerprint and start global tracking.</p>
+            <div class="upload-area">
+                <i data-lucide="upload-cloud"></i>
+                <p>Drag & drop or <span>browse</span></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button class="btn btn-primary">Start Authentication</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
